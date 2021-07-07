@@ -9,7 +9,7 @@ echo ">>> SYSTEM UPGRADED <<<"
 # Install paru
 echo ""
 echo ">>> Installing paru-bin <<<"
-sudo pacman -S -noconfirm --needed paru-bin
+sudo pacman -S -noconfirm paru-bin
 
 # # Install Terminal Applications
 echo ""
