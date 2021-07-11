@@ -19,6 +19,7 @@ node* delete_last(node *);
 node* delete_pos(node *, int);
 node* delete_value(node *, int);
 node* delete_after_pos(node *, int);
+node* clear_list(node *);
 node* create();
 
 int main()
@@ -37,7 +38,9 @@ int main()
     /* print(head); */
     /* head = delete_last(head); */
     /* print(head); */
-    head = delete_after_pos(head, pos);
+    /* head = delete_after_pos(head, pos); */
+    /* print(head); */
+    head = clear_list(head);
     print(head);
 
     return 0;
@@ -202,6 +205,17 @@ node* delete_last(node *temp)
     return newhead;
 }
 
+
+node* clear_list(node *head)
+{
+    node *clear = head;
+    while (head) {
+        clear   = head;
+        head    = head->next;
+        free(clear);
+    }
+    return NULL;
+}
 
 node* delete_after_pos(node *temp, int pos)
 {
