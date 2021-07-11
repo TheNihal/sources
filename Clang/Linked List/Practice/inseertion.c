@@ -25,13 +25,13 @@ node* at(node *, int, int);
 int main()
 {
     int key = 69;
-    int pos = 3;
+    int pos = 4;
     node *head = NULL;
     head = create();
 
-    empty(head) ? printf("Empty!\n") : printf("Not Empty!\n");
+    /* empty(head) ? printf("Empty!\n") : printf("Not Empty!\n"); */
     print(head);
-    printf("Size: %d\n", size(head));
+    /* printf("Size: %d\n", size(head)); */
 
     /* head = begin(head, key); */
     /* print(head); */
@@ -75,39 +75,6 @@ int empty(node *temp)
     return 1;
 }
 
-node* create()
-{
-    node *head = NULL;
-
-    node *temp  = (node *) malloc(sizeof(node));
-    temp->value = 1;
-    temp->next  = NULL;
-    head        = temp;
-
-    temp->next  = (node *) malloc(sizeof(node));
-    temp        = temp->next;
-    temp->value = 7 ;
-    temp->next  = NULL;
-
-    temp->next  = (node *) malloc(sizeof(node));
-    temp        = temp->next;
-    temp->value = 4 ;
-    temp->next  = NULL;
-    temp->next  = (node *) malloc(sizeof(node));
-    temp        = temp->next;
-    temp->value = 6 ;
-    temp->next  = NULL;
-    temp->next  = (node *) malloc(sizeof(node));
-    temp        = temp->next;
-    temp->value = 4 ;
-    temp->next  = NULL;
-    temp->next  = (node *) malloc(sizeof(node));
-    temp        = temp->next;
-    temp->value = 5 ;
-    temp->next  = NULL;
-
-    return head;
-}
 
 node* begin(node *temp, int key)
 {
@@ -136,17 +103,55 @@ node* end(node *temp, int key)
     return temp;
 }
 
+
+node* create()
+{
+    node *head = NULL;
+
+    node *temp  = (node *) malloc(sizeof(node));
+    temp->value = 1;
+    temp->next  = NULL;
+    head        = temp;
+
+    temp->next  = (node *) malloc(sizeof(node));
+    temp        = temp->next;
+    temp->value = 7 ;
+    temp->next  = NULL;
+/*
+    temp->next  = (node *) malloc(sizeof(node));
+    temp        = temp->next;
+    temp->value = 4 ;
+    temp->next  = NULL;
+
+    temp->next  = (node *) malloc(sizeof(node));
+    temp        = temp->next;
+    temp->value = 6 ;
+    temp->next  = NULL;
+
+    temp->next  = (node *) malloc(sizeof(node));
+    temp        = temp->next;
+    temp->value = 4 ;
+    temp->next  = NULL;
+
+    temp->next  = (node *) malloc(sizeof(node));
+    temp        = temp->next;
+    temp->value = 5 ;
+    temp->next  = NULL;
+*/
+    return head;
+}
+
 node* at(node *temp, int pos, int key)
 {
-    if(pos == 1 || pos == size(temp)+1) {
-        return end(temp, key);
-    }
+    /* if(pos == 1 || pos == size(temp)+1) { */
+    /*     return end(temp, key); */
+    /* } */
 
     if(pos == 1) {
         return begin(temp, key);
     }
 
-    if(pos <= 0 || pos > size(temp)) {
+    if(pos <= 0 || pos > size(temp)+1) {
         printf("Invalid position!\n");
         return temp;
     }
