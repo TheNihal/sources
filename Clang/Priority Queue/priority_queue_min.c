@@ -56,7 +56,7 @@ int main()
         }
     }
 
-    empty(head) ? printf("Empty!\n") : printf("Not Empty!\n");
+    empty(head) ? printf("Not Empty!\n") : printf("Empty!\n");
 
     printf("Size : %d\n", size(head));
 
@@ -91,6 +91,10 @@ int size(node *temp)
 
 int top(node *temp)
 {
+    if (temp == NULL) {
+        empty(temp) ? printf("Not Empty!\n") : printf("Empty!\n");
+        return 0;
+    }
     int value = temp->value;
     int prev = temp->priority;
     while (temp) {
@@ -120,6 +124,10 @@ node* pop(node *temp)
 
 void display(node *temp)
 {
+    if (temp == NULL) {
+        empty(temp) ? printf("Not Empty!\n") : printf("Empty!\n");
+        return;
+    }
     while (temp) {
         printf("%d ", temp->value);
         temp        = temp->next;
