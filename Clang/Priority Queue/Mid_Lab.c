@@ -51,12 +51,12 @@ int main()
                 new     = new->next;
             }
 
-            temp->next  = new->next;
+            temp->next = new->next;
             new->next   = temp;
         }
     }
 
-    empty(head) ? printf("Queue is Not Empty!\n") : printf("Queue is Empty!\n");
+    empty(head);
 
     printf("Size : %d\n", size(head));
 
@@ -74,9 +74,10 @@ int main()
 int empty(node *temp)
 {
     if (temp == NULL)
-        return 0;
+        printf("Empty\n");
+
     else
-        return 1;
+        printf("Not Empty\n");
 }
 
 int size(node *temp)
@@ -140,4 +141,7 @@ void display(node *temp)
     }
     printf("\n");
 }
+
+
+
 
