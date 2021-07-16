@@ -56,11 +56,13 @@ int main()
         }
     }
 
-    empty(head) ? printf("Not Empty!\n") : printf("Empty!\n");
+    empty(head) ? printf("Queue is not Empty!\n") : printf("Queue is Empty!\n");
 
-    printf("Size : %d\n", size(head));
+    display(head);
 
-    printf("Top : %d\n", top(head));
+    printf("Size  : %d\n", size(head));
+
+    printf("Top   : %d\n", top(head));
 
     head = push(head, key);
     display(head);
@@ -92,42 +94,54 @@ int size(node *temp)
 int top(node *temp)
 {
     if (temp == NULL) {
-        empty(temp) ? printf("Not Empty!\n") : printf("Empty!\n");
         return 0;
     }
-    int value = temp->value;
-    int prev = temp->priority;
-    while (temp) {
-        if(temp->priority < prev)
-            value = temp->priority;
-        prev = temp->priority;
-        temp = temp->next;
+    else {
+        return temp->value;
     }
-    return value;
 }
 
 node* push(node *temp, int key)
 {
-    node *newhead = (node *) malloc(sizeof(node));
-    newhead->value = key;
-    newhead->next  = temp;
-    return newhead;
+    if (temp == NULL) {
+        return NULL;
+    }
+    else {
+        node *newhead   = temp;
+        newhead->value  = key;
+        return newhead;
+    }
 }
+
+/* node* push(node *temp, int key) */
+/* { */
+/*     node *newhead = (node *) malloc(sizeof(node)); */
+/*     newhead->value = key; */
+/*     newhead->next  = temp; */
+/*     return newhead; */
+/* } */
 
 node* pop(node *temp)
 {
-    node *new = temp;
-    new       = temp->next;
-    free(temp);
-    return new;
+    if (temp == NULL) {
+        return NULL;
+    }
+    else {
+        node *newhead = temp;
+        newhead       = temp->next;
+        free(temp);
+        return newhead;
+    }
 }
 
 void display(node *temp)
 {
     if (temp == NULL) {
-        empty(temp) ? printf("Not Empty!\n") : printf("Empty!\n");
+        printf("Queue is Empty!\n");
         return;
     }
+
+    printf("Queue : ");
     while (temp) {
         printf("%d ", temp->value);
         temp        = temp->next;
